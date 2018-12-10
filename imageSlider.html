@@ -1,0 +1,169 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+$(document).ready(function() {
+		$(".avi:gt(0)").hide();//first div chara hide all div [ gt(0) ]	
+			
+		/*$(function load() {
+		$('.avi:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('.slideshow');
+		setTimeout(load, 4000);
+		})();*/
+		
+		
+		/*setInterval(function() {
+		$('.avi:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('.slideshow');
+		}, 3000);*/
+		
+		
+			
+		//********OR********//
+ 
+		
+		var main =function() {
+		$('.avi:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('.slideshow');
+		}
+		var continu= setInterval( main , 5000);
+		
+		$('.next').click(function(){
+		clearInterval(continu);
+		$('.avi:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('.slideshow');
+		continu= setInterval( main , 5000);
+		})
+	
+		$('.previous').click(function(){
+		clearInterval(continu);
+		$('.avi:first').fadeOut(1000);
+		$(".avi:last").fadeIn(1000).prependTo(".slideshow"); 
+		continu= setInterval( main , 5000);
+		})
+		
+		
+
+		
+		
+		/*$(".avi:gt(0)").hide();//first div chara hide all div [ :gt(index) ]filter	
+
+        // fade out current slide (first), fade in next slide and move first slide to end
+        var nextSlide = function() { 
+            $(".avi:first")
+            .fadeOut(1000)
+            .next()
+            .fadeIn(1000)
+            .end()
+            .appendTo(".slideshow");
+        }
+
+       var nextSlideTimer = setInterval(nextSlide,  9000);
+
+        // fade out current slide (first) and move last slide to top and fade in
+        $(".previous").click(function() {
+            clearInterval(nextSlideTimer);
+
+            $(".avi:first")
+            .fadeOut(1000);
+            $(".avi:last")
+            .fadeIn(1000)
+            .prependTo(".slideshow");
+
+            nextSlideTimer = setInterval(nextSlide, 9000)
+            setTimeout(nextSlideTimer, 9000)
+        });
+
+        $(".next").click(function() {
+            clearInterval(nextSlideTimer);
+
+            $(".avi:first")
+            .fadeOut(1000)
+            .next()
+            .fadeIn(1000)
+            .end()
+            .appendTo(".slideshow");
+
+            nextSlideTimer = setInterval(nextSlide, 9000)
+            setTimeout(nextSlideTimer, 9000)
+        });
+
+       $(".slideshow").hover(function() {
+         $(".previous ,.next").fadeToggle('slow');
+        });*/
+		
+		
+		
+		
+		
+		
+})
+
+</script>
+<style>
+.slideshow {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  padding: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.avi{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  color:#FFFFFF;
+  text-align:center;
+}
+
+.previous{
+    position: relative;
+    cursor: pointer;
+    bottom: 156px;
+    right: 31px;
+}
+
+.next{
+	position: absolute;
+    position: relative;
+    left: 226px;
+    cursor: pointer;
+    bottom: 156px;
+}
+.cover{
+	margin:80px auto;
+	height:100%;
+    width: 272px;
+	}
+</style>
+</head>
+<body>
+<div class="cover">
+		<div class="slideshow">
+		   <div class="avi" style="background-color:#2AE972;">
+			<h5>FIRST SLIDER 1</h5>
+		   </div>
+		   <div class="avi" style="background-color:#00ADEB;">
+			  <h5>SECOND SLIDER 2</h5>
+		   </div>
+		   <div class="avi" style="background-color:#FF9E37;">
+			 <h5>THIRD SLIDER 3</h5>
+		   </div>
+		   <div class="avi" style="background-color:#2AE972;">
+			<h5>FORTH SLIDER 4</h5>
+		   </div>
+		   <div class="avi" style="background-color:#00ADEB;">
+			  <h5>FIFTH SLIDER 5</h5>
+		   </div>
+		   <div class="avi" style="background-color:#FF9E37;">
+			 <h5>SIXTH SLIDER 6</h5>
+		   </div>	   
+		</div>
+		<button class="previous"><<</button>
+		<input type="button" value=">>" class="next">
+</div>
+
+
+
+</body>
+</html>
